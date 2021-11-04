@@ -7,6 +7,12 @@ import {
   NLayoutFooter,
   NLayoutSider,
   NButton,
+  NMenu,
+  NIcon,
+  NSkeleton,
+  NGrid,
+  NGi,
+  NCard,
 } from "naive-ui";
 
 const naive = create({
@@ -18,6 +24,12 @@ const naive = create({
     NLayoutFooter,
     NLayoutSider,
     NButton,
+    NMenu,
+    NIcon,
+    NSkeleton,
+    NGrid,
+    NGi,
+    NCard,
   ],
 });
 

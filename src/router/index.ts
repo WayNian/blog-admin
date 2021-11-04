@@ -1,14 +1,24 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from "vue-router";
-import Layout from "@/views/layout.vue";
+import Layout from "@/views/layout/index.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
     component: Layout,
+    children: [
+      {
+        path: "",
+        component: import(
+          /* webpackChunkName: "about" */ "@/views/dashboard/index.vue"
+        ),
+      },
+    ],
   },
   {
     path: "/about",
-    component: import(/* webpackChunkName: "about" */ "@/views/about.vue"),
+    component: import(
+      /* webpackChunkName: "about" */ "@/views/about/index.vue"
+    ),
   },
 ];
 

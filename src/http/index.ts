@@ -1,5 +1,4 @@
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
-import { IDataType } from "./../types/http";
 
 const instance: AxiosInstance = axios.create({
   baseURL: "https://some-domain.com/api/",
