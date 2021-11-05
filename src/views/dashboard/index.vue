@@ -33,6 +33,7 @@
       <div class="green"></div>
     </n-gi>
   </n-grid>
+  <n-button @click="resize">点击</n-button>
   <n-grid x-gap="12" :cols="1">
     <n-gi style="padding-top: 20px">
       <n-card :bordered="false">
@@ -43,11 +44,19 @@
 </template>
 <script setup lang="ts">
   import { useECharts } from "@/hooks/useECharts";
-  import { onMounted, Ref, ref } from "vue";
+  import { onMounted, onBeforeUnmount, Ref, ref } from "vue";
+  import { useConfigStore } from "@/stores/config";
 
   const echarts = ref<HTMLDivElement | null>(null);
 
-  const { setOptions } = useECharts(echarts as Ref<HTMLDivElement>);
+  const { setOptions, removeResizeListener, resize } = useECharts(echarts as Ref<HTMLDivElement>);
+  const store = useConfigStore();
+
+  store.$subscribe(() => {
+    setTimeout(() => {
+      resize();
+    }, 500);
+  });
 
   onMounted(() => {
     setOptions({
@@ -145,6 +154,10 @@
         },
       ],
     });
+  });
+
+  onBeforeUnmount(() => {
+    removeResizeListener();
   });
   const dashboardDataList = [
     {
