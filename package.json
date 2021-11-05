@@ -5,7 +5,11 @@
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
     "serve": "vite preview",
-    "lint": "lint --fix"
+    "lint:eslint": "eslint \"{src,mock}/**/*.{vue,ts,tsx}\" --fix",
+    "lint:prettier": "prettier --write --loglevel warn \"src/**/*.{js,json,tsx,css,less,scss,vue,html,md}\"",
+    "lint:stylelint": "stylelint --fix \"**/*.{vue,less,postcss,css,scss}\" --cache --cache-location node_modules/.cache/stylelint/",
+    "lint:lint-staged": "lint-staged -c ./.husky/lintstagedrc.js",
+    "lint:pretty": "pretty-quick --staged"
   },
   "dependencies": {
     "@vicons/ionicons5": "^0.11.0",
@@ -22,6 +26,7 @@
     "@vitejs/plugin-vue": "^1.9.3",
     "eslint": "^8.1.0",
     "eslint-config-prettier": "^8.3.0",
+    "eslint-define-config": "1.0.9",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-vue": "^7.20.0",
     "prettier": "^2.4.1",

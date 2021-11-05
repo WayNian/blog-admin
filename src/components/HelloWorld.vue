@@ -22,17 +22,17 @@
   </n-space>
 </template>
 <script setup lang="ts">
-import request from "@/http";
-import { useCounterStore } from "@/stores/";
-defineProps<{ msg: string }>();
+  import request from "@/http";
+  import { useCounterStore } from "@/stores/";
+  defineProps<{ msg: string }>();
 
-const store = useCounterStore();
+  const store = useCounterStore();
 
-request({
-  // url: "122",
-  baseURL: "https://i.snssdk.com/slardar/sdk_setting?bid=juejin_web",
-  method: "GET",
-  params: {},
-});
+  request({
+    // url: "122",
+    baseURL: "https://i.snssdk.com/slardar/sdk_setting?bid=juejin_web",
+    method: "GET",
+    params: {},
+  });
 </script>
 <style scoped></style>

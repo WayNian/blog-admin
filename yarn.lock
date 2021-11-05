@@ -837,6 +837,11 @@ eslint-config-prettier@^8.3.0:
   resolved "https://registry.nlark.com/eslint-config-prettier/download/eslint-config-prettier-8.3.0.tgz#f7471b20b6fe8a9a9254cc684454202886a2dd7a"
   integrity sha1-90cbILb+ipqSVMxoRFQgKIai3Xo=
 
+eslint-define-config@1.0.9:
+  version "1.0.9"
+  resolved "https://registry.npmmirror.com/eslint-define-config/download/eslint-define-config-1.0.9.tgz#72e5e2410c576667a6ba1b5bff9801eeda476256"
+  integrity sha1-cuXiQQxXZmemuhtb/5gB7tpHYlY=
+
 eslint-plugin-prettier@^4.0.0:
   version "4.0.0"
   resolved "https://registry.nlark.com/eslint-plugin-prettier/download/eslint-plugin-prettier-4.0.0.tgz#8b99d1e4b8b24a762472b4567992023619cb98e0"
