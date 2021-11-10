@@ -14,56 +14,34 @@
       :collapsed-width="64"
       :collapsed-icon-size="22"
       :options="menuOptions"
-      default-value="dashboard"
+      :on-update:value="change"
+      :default-expanded-keys="expanKeys"
+      :value="activeMenu"
       inverted
     />
   </n-layout-sider>
 </template>
 <script setup lang="ts">
+  import { useMenu } from "@/hooks/useMenu";
   import { useConfigStore } from "@/stores/config";
+  import { ref } from "vue";
+  import { useRoute, useRouter } from "vue-router";
+  const route = useRoute();
+  const router = useRouter();
   const store = useConfigStore();
+  const activeMenu = ref("");
+  const { name, fullPath, matched } = route;
+  console.log(matched);
 
-  const menuOptions = [
-    {
-      label: "Dashboard",
-      key: "dashboard",
-    },
-    {
-      label: "创作空间",
-      key: "workspace",
-      children: [
-        {
-          label: "列表",
-          key: "aritle-list",
-        },
-        {
-          label: "新增",
-          key: "aritle-add",
-        },
-      ],
-    },
-    {
-      label: "音乐空间",
-      key: "workspace",
-    },
-    {
-      label: "分类",
-      key: "classification",
-      children: [
-        {
-          label: "Tag",
-          key: "tag",
-        },
-        {
-          label: "Category",
-          key: "category",
-        },
-      ],
-    },
-    {
-      label: "关于",
-      key: "about",
-    },
-  ];
+  activeMenu.value = name as string;
+
+  const { menuOptions, expanKeys } = useMenu(fullPath);
+
+  const change = (key) => {
+    activeMenu.value = key;
+    router.push({
+      name: key,
+    });
+  };
 </script>
 <style scoped></style>

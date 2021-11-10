@@ -16,7 +16,6 @@
   import { useCounterStore } from "@/stores/";
   import BaseSider from "@/components/Sider/index.vue";
   import BaseHeader from "@/components/Header/index.vue";
-  defineProps<{ msg: string }>();
 
   const store = useCounterStore();
 
